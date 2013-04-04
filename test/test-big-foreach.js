@@ -1,8 +1,12 @@
-var BigForEach = require(process.env.SRCTOP + '/ec/lib/util/bigforeach').BigForEach,
+var BigForEach = require('../lib/bigforeach').BigForEach,
 	ASync = require('async');
 
+// This script can be run without arguments. 
+
 var arr = [];
-for(var x=0; x<1000000; x++) {
+var count = process.argv[2] || 100000;
+var min_threshold = process.argv[3] || 100;
+for(var x=0; x<count; x++) {
 	arr.push(x);
 }
 var start = +new Date();
@@ -25,7 +29,5 @@ BigForEach(arr, function(number, foreach_callback) {
 		}
 	)
 }, function(err) {
-	console.log("Big Bench: " + (+new Date() - start));
-	console.log("I: " + i);
-	console.log("J: " + j);
-});
+	console.log("Iterating over " + i + " items with divided arrays no larger than " + min_threshold + " items took " + (+new Date() - start) + "ms");
+}, min_threshold);
