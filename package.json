@@ -1,0 +1,14 @@
+{
+	"name": "BigForEach",
+	"description": "Improve performance over Async.forEach",
+	"main": "./lib/BigForEach",
+	"author": "Jeff Strinko",
+	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/jstrinko/BigForEach.git"
+	},
+	"devDependencies": {
+		"async":"0.1.22"
+	}
+}
